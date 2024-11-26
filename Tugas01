@@ -1,21 +1,48 @@
-Welcome to Termux
+ 
+package main
 
-Docs:       https://doc.termux.com
-Community:  https://community.termux.com
+import "fmt"
 
-Working with packages:
- - Search:  pkg search <query>
- - Install: pkg install <package>
- - Upgrade: pkg upgrade
+// Interface Benda
+type Benda interface {
+        Identitas() string
+}
 
-Report issues at https://bugs.termux.com
-~/OlinRyantii/TugasOlin $ mkdir TugasOlinRyanti
-~/OlinRyantii/TugasOlin $ ls
-TugasOlin.go  TugasOlinRyanti
-~/OlinRyantii/TugasOlin $ cd TugasOlinRyanti
-~/.../TugasOlin/TugasOlinRyanti $ nano TugasOlinRyanti.go
-~/.../TugasOlin/TugasOlinRyanti $ go run TugasOlinRyanti.go
-Saya adalah sebuah benda bernama Olin.
-Sebagai mamalia, saya bernafas menggunakan paru-paru.
-Halo, nama saya Olin. Saya bisa berbicara karena saya manusia.
-~/.../TugasOlin/TugasOlinRyanti $
+// Interface Mamalia, yang merupakan bagian dari Benda
+type Mamalia interface {
+        Benda
+        Bernafas() string
+}
+
+// Interface Manusia, yang merupakan bagian dari Mamalia
+type Manusia interface {
+        Mamalia
+        Berbicara() string
+}
+
+// Struct Mahasiswa, yang mengimplementasikan semua interface di atas
+type Mahasiswa struct {
+        Nama string
+}
+
+func (m Mahasiswa) Identitas() string {
+        return fmt.Sprintf("Saya adalah sebuah benda bernama %s.", m.Nama)
+}
+
+func (m Mahasiswa) Bernafas() string {
+        return "Sebagai mamalia, saya bernafas menggunakan paru-paru."
+}
+
+func (m Mahasiswa) Berbicara() string {
+        return fmt.Sprintf("Halo, nama saya %s. Saya bisa berbicara karena saya manusia.", m.Nama)
+}
+
+func main() {
+        // Membuat instance Mahasiswa
+        mahasiswa := Mahasiswa{Nama: "Olin"}
+
+        // Mengakses metode dari berbagai interface
+        fmt.Println(mahasiswa.Identitas())
+        fmt.Println(mahasiswa.Bernafas())
+        fmt.Println(mahasiswa.Berbicara())
+}
