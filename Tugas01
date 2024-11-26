@@ -1,0 +1,21 @@
+Welcome to Termux
+
+Docs:       https://doc.termux.com
+Community:  https://community.termux.com
+
+Working with packages:
+ - Search:  pkg search <query>
+ - Install: pkg install <package>
+ - Upgrade: pkg upgrade
+
+Report issues at https://bugs.termux.com
+~/OlinRyantii/TugasOlin $ mkdir TugasOlinRyanti
+~/OlinRyantii/TugasOlin $ ls
+TugasOlin.go  TugasOlinRyanti
+~/OlinRyantii/TugasOlin $ cd TugasOlinRyanti
+~/.../TugasOlin/TugasOlinRyanti $ nano TugasOlinRyanti.go
+~/.../TugasOlin/TugasOlinRyanti $ go run TugasOlinRyanti.go
+Saya adalah sebuah benda bernama Olin.
+Sebagai mamalia, saya bernafas menggunakan paru-paru.
+Halo, nama saya Olin. Saya bisa berbicara karena saya manusia.
+~/.../TugasOlin/TugasOlinRyanti $
