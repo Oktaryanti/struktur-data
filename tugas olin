@@ -1,0 +1,29 @@
+package main
+
+import "fmt"
+
+// Interface Benda
+type Benda interface {
+        Identitas() string
+}
+
+// Interface Mamalia, yang merupakan bagian dari Benda
+type Mamalia interface {
+        Benda
+        Bernafas() string
+}
+
+// Interface Manusia, yang merupakan bagian dari Mamalia
+type Manusia interface {
+        Mamalia
+        Berbicara() string
+}
+
+// Struct Mahasiswa, yang mengimplementasikan semua interface di atas
+type Mahasiswa struct {
+        Nama string
+}
+
+func (m Mahasiswa) Identitas() string {
+        return fmt.Sprintf("Saya adalah sebuah benda bernama %s.", m.Nama)
+}
